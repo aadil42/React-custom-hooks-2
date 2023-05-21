@@ -7,11 +7,22 @@ import NewTask from './components/NewTask/NewTask';
 import useGet from './custom-hooks/useGet';
 
 function App() {
-  const [tasks, error, isLoading] = useGet();
+  const [fetchTasks, error, isLoading] = useGet();
+
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    const getTasks = async () => {
+      const list = await fetchTasks();
+      setTasks(list);
+    };
+    getTasks();
+  }, []);
   
+  console.log(tasks);
   return (
     <React.Fragment>
-      {/* <NewTask onAddTask={taskAddHandler} /> */}
+      <NewTask setList={setTasks}/>
       <Tasks
         items={tasks}
         loading={isLoading}

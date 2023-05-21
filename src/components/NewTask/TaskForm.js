@@ -1,25 +1,44 @@
-import { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 import classes from './TaskForm.module.css';
 
+// import custom hook
+
+import usePost from '../../custom-hooks/usePost';
+
 const TaskForm = (props) => {
+
+  // const dataHandler = (event) => {
+  //   event.preventDefault();
+  //   const enteredValue = taskInputRef.current.value;
+  //   props.setList((preTasks) => [...preTasks, enteredValue]);
+  // };
+  
+  // const taskInputRef = useRef();
+  // const [enterTaskHandler, error, isLoading] = usePost();
+
+  // const submitHandler = async () => {
+  //   const enteredValue = taskInputRef.current.value;
+  //   console.log(enteredValue);
+  //   enterTaskHandler(enteredValue, props.setList);
+  // }
+
   const taskInputRef = useRef();
 
-  const submitHandler = (event) => {
-    event.preventDefault();
-
-    const enteredValue = taskInputRef.current.value;
-
-    if (enteredValue.trim().length > 0) {
-      props.onEnterTask(enteredValue);
-    }
-  };
+  const testing = (event) => {
+        event.preventDefault();
+        const enteredValue = taskInputRef.current.value;
+        props.submitHandler(enteredValue);
+  }
 
   return (
-    <form className={classes.form} onSubmit={submitHandler}>
-      <input type='text' ref={taskInputRef} />
-      <button>{props.loading ? 'Sending...' : 'Add Task'}</button>
+    <React.Fragment>
+    <form className={classes.form} onSubmit={testing}>
+      <input type='text' ref={taskInputRef}  />
+      <button>{props.isLoading ? 'Sending...' : 'Add Task'}</button>
     </form>
+    {/* {error && <p>{error}</p>} */}
+    </React.Fragment>
   );
 };
 

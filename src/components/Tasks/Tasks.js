@@ -25,6 +25,11 @@ const Tasks = (props) => {
     content = 'Loading tasks...';
   }
 
+  if(!props.loading && !props.error && props.items.length === 0) {
+    
+  }
+  // console.log(props.items);
+  // console.log(content);
   return (
     <Section>
       <div className={classes.container}>{content}</div>
