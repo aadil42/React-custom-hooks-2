@@ -7,7 +7,7 @@ import NewTask from './components/NewTask/NewTask';
 import useGet from './custom-hooks/useGet';
 
 function App() {
-  const [fetchTasks, error, isLoading] = useGet();
+  const [fetchTasks, error, isLoading, setError] = useGet();
 
   const [tasks, setTasks] = useState([]);
 
@@ -19,15 +19,14 @@ function App() {
     getTasks();
   }, []);
   
-  console.log(tasks);
   return (
     <React.Fragment>
-      <NewTask setList={setTasks}/>
+      <NewTask setList={setTasks} setError={setError} isLoading={isLoading} error={error}/>
       <Tasks
         items={tasks}
         loading={isLoading}
         error={error}
-        // onFetch={fetchTasks}
+        onFetch={fetchTasks}
       />
     </React.Fragment>
   );

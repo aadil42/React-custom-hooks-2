@@ -1,27 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 
-import classes from './TaskForm.module.css';
-
-// import custom hook
-
-import usePost from '../../custom-hooks/usePost';
-
+import classes from './TaskForm.module.css'; 
 const TaskForm = (props) => {
-
-  // const dataHandler = (event) => {
-  //   event.preventDefault();
-  //   const enteredValue = taskInputRef.current.value;
-  //   props.setList((preTasks) => [...preTasks, enteredValue]);
-  // };
-  
-  // const taskInputRef = useRef();
-  // const [enterTaskHandler, error, isLoading] = usePost();
-
-  // const submitHandler = async () => {
-  //   const enteredValue = taskInputRef.current.value;
-  //   console.log(enteredValue);
-  //   enterTaskHandler(enteredValue, props.setList);
-  // }
 
   const taskInputRef = useRef();
 

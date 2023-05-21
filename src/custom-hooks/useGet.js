@@ -23,24 +23,16 @@ const useGet = () => {
           for (const taskKey in data) {
             loadedTasks.push({ id: taskKey, text: data[taskKey].text });
           }
-           
-          // setTasks(loadedTasks);
-        //   console.log(loadedTasks);
+
         setIsLoading(false);
         return loadedTasks;
         } catch (err) {
           setIsLoading(false);
           setError(err.message || 'Something went wrong!');
         }
-        // setIsLoading(false);
       };    
-      
-      // useEffect(() => {
-      //   console.log('from get ');
-      //   fetchTasks();
-      // },[]);
 
-      return [fetchTasks, error, isLoading];
+      return [fetchTasks, error, isLoading, setError];
 }
 
 export default useGet;

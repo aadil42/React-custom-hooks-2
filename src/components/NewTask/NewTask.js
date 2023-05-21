@@ -7,24 +7,19 @@ import usePost from '../../custom-hooks/usePost';
 
 
 const NewTask = (props) => {
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [error, setError] = useState(null);
-
     
-  const [enterTaskHandler, error, isLoading] = usePost();
+  const [enterTaskHandler] = usePost(props.setError);
   const addToList = (task) => {
     props.setList((tasks) => [...tasks, task]);
   }
   const submitHandler = async (enteredValue) => {
-    // const enteredValue = taskInputRef.current.value;
-    // console.log(enteredValue);
     enterTaskHandler(enteredValue, addToList);
   }
 
   return (
     <Section>
-      <TaskForm submitHandler={submitHandler} isLoading={isLoading}/>
-      {error && <p>{error}</p>}
+      <TaskForm submitHandler={submitHandler} isLoading={props.isLoading}/>
+      {props.error && <p>{props.error}</p>}
     </Section>
   );
 };
