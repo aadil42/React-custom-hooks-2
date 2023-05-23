@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 
 import classes from './TaskForm.module.css'; 
 const TaskForm = (props) => {
@@ -17,7 +17,6 @@ const TaskForm = (props) => {
       <input type='text' ref={taskInputRef}  />
       <button>{props.isLoading ? 'Sending...' : 'Add Task'}</button>
     </form>
-    {/* {error && <p>{error}</p>} */}
     </React.Fragment>
   );
 };
