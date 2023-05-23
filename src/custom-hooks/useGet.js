@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 
 const useGet = () => {
+    console.log('hehe this is getting called');
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 

@@ -10,7 +10,7 @@ const usePost = (setError, setIsLoading) => {
         try {
           const response = await fetch(
             'https://http-request-2-with-react-default-rtdb.asia-southeast1.firebasedatabase.app/tasks.json',
-            {
+            { 
               method: 'POST',
               body: JSON.stringify({ text: taskText }),
               headers: {

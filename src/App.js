@@ -8,7 +8,7 @@ import useGet from './custom-hooks/useGet';
 
 function App() {
   const [fetchTasks, error, isLoading, setError, setIsLoading] = useGet();
-
+  
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
