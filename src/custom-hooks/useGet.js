@@ -1,11 +1,11 @@
-import {useState, useEffect} from 'react';
+import {useState, useCallback} from 'react';
 
 const useGet = () => {
     console.log('hehe this is getting called');
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const fetchTasks = async () => {
+    const fetchTasks = useCallback(async () => {
         setIsLoading(true);
         setError(null);
         try {
@@ -31,7 +31,7 @@ const useGet = () => {
           setIsLoading(false);
           setError(err.message || 'Something went wrong!');
         }
-      };    
+      },[setIsLoading, setError]);    
 
       return [fetchTasks, error, isLoading, setError, setIsLoading];
 }

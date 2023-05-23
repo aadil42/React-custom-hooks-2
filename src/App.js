@@ -17,7 +17,7 @@ function App() {
       setTasks(list);
     };
     getTasks();
-  }, []);
+  }, [fetchTasks]);
   
   return (
     <React.Fragment>
