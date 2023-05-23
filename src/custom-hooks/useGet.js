@@ -32,7 +32,7 @@ const useGet = () => {
         }
       };    
 
-      return [fetchTasks, error, isLoading, setError];
+      return [fetchTasks, error, isLoading, setError, setIsLoading];
 }
 
 export default useGet;

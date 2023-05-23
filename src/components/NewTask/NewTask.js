@@ -8,7 +8,7 @@ import usePost from '../../custom-hooks/usePost';
 
 const NewTask = (props) => {
     
-  const [enterTaskHandler] = usePost(props.setError);
+  const [enterTaskHandler] = usePost(props.setError, props.setIsLoading);
   const addToList = (task) => {
     props.setList((tasks) => [...tasks, task]);
   }

@@ -1,11 +1,11 @@
 import {useState, useEffect} from 'react';
 
-const usePost = (setError) => {
+const usePost = (setError, setIsLoading) => {
     // const [isLoading, setIsLoading] = useState(false);
     // const [error, setError] = useState(null);
 
       const enterTaskHandler = async (taskText, dataHandler) => {
-        // setIsLoading(true);
+        setIsLoading(true);
         setError(null);
         try {
           const response = await fetch(
@@ -30,7 +30,7 @@ const usePost = (setError) => {
         } catch (err) {
           setError(err.message || 'Something went wrong!');
         }
-        // setIsLoading(false);
+        setIsLoading(false);
       };
 
 
